@@ -230,25 +230,26 @@
       </div>
     </div>
 
-    <form class="checkout-form" action="index.html">
+    <form id="checkout-form" class="checkout-form" action="pago-exitoso.html" novalidate>
+      <div class="form-summary" role="alert" hidden></div>
       <h3 style="font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 1rem;">Método de pago</h3>
       
       <div class="form-group">
-        <label>Titular de la tarjeta</label>
-        <input type="text" class="form-control" placeholder="Nombre completo" required>
+        <label for="pay-titular">Titular de la tarjeta</label>
+        <input type="text" id="pay-titular" class="form-control" placeholder="Nombre completo" autocomplete="cc-name" data-rules="required|name|minlength:3">
       </div>
       <div class="form-group">
-        <label>Número de tarjeta</label>
-        <input type="text" class="form-control" placeholder="0000 0000 0000 0000" required>
+        <label for="pay-card">Número de tarjeta</label>
+        <input type="text" id="pay-card" class="form-control" placeholder="0000 0000 0000 0000" inputmode="numeric" autocomplete="cc-number" maxlength="23" data-mask="card" data-rules="required|card">
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Caducidad</label>
-          <input type="text" class="form-control" placeholder="MM/AA" required>
+          <label for="pay-exp">Caducidad</label>
+          <input type="text" id="pay-exp" class="form-control" placeholder="MM/AA" inputmode="numeric" autocomplete="cc-exp" maxlength="5" data-mask="expiry" data-rules="required|expiry">
         </div>
         <div class="form-group">
-          <label>CVC</label>
-          <input type="text" class="form-control" placeholder="123" required>
+          <label for="pay-cvc">CVC</label>
+          <input type="password" id="pay-cvc" class="form-control" placeholder="123" inputmode="numeric" autocomplete="cc-csc" maxlength="4" data-mask="digits" data-rules="required|cvc">
         </div>
       </div>
 
@@ -261,76 +262,41 @@
       </p>
     </form>
   </div>
-      <script>
-    // Esto lee la URL para saber qué tarjeta has pulsado
-    const params = new URLSearchParams(window.location.search);
-    const servicio = params.get('servicio');
+  <script src="js/mockData.js"></script>
+  <script>
+    /* Muestra el servicio pedido en la URL leyendo los datos de mockData.js.
+       Acepta ?id=N (Dashboard) o ?servicio=categoria (enlaces de Explorar).
+       Se usa textContent para que nada de la URL se interprete como HTML. */
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const id = Number(params.get('id'));
+      const cat = (params.get('servicio') || '').toLowerCase();
 
-    // Elementos del DOM que vamos a cambiar
-    const elTitulo = document.querySelector('h1');
-    const elSubtitulo = document.querySelector('main p'); // El primer párrafo debajo del h1
-    const elPrecioTop = document.querySelector('main h2');
-    const elImagen = document.querySelector('.detail-img');
-    
-    // Elementos del panel de pago
-    const elResumenServicio = document.querySelector('.checkout-summary-row:nth-child(1) span:first-child');
-    const elResumenPrecio = document.querySelector('.checkout-summary-row:nth-child(1) span:last-child');
-    const elBotonPagar = document.querySelector('.checkout-form button');
-    
-    // Función para actualizar los totales
-    function actualizarTotales(precioBase) {
-      const gastos = 5;
-      const total = precioBase + gastos;
-      // Actualiza el total en el resumen
-      document.querySelector('.checkout-summary-row.total span:last-child').innerText = total + ',00 €';
-      // Actualiza el texto del botón
-      elBotonPagar.innerText = `Pagar ${total},00 € y confirmar`;
-    }
+      const s = SERVICIOS.find((x) => x.id === id)
+        || SERVICIOS.find((x) => x.categoria.toLowerCase() === cat)
+        || SERVICIOS.find((x) => x.id === 2); // Por defecto: Retratos
 
-    // Si el servicio es "bodas"
-    if (servicio === 'bodas') {
-      elTitulo.innerText = 'Historias de amor, a tu manera';
-      elSubtitulo.innerHTML = 'Por Marta García · Valencia, España';
-      elPrecioTop.innerHTML = '300 € <span style="font-size: 1rem; color: var(--color-text-muted); font-family: var(--font-sans); font-weight: 400;">/ sesión</span>';
-      elImagen.style.backgroundImage = "url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop')";
-      
-      // Actualizamos el carrito
-      elResumenServicio.innerText = 'Sesión de bodas (Completa)';
-      elResumenPrecio.innerText = '300,00 €';
-      actualizarTotales(300);
-    }
-    
-    // Si el servicio es "familia"
-    if (servicio === 'familia') {
-      elTitulo.innerText = 'Momentos en familia';
-      elSubtitulo.innerHTML = 'Por Carlos Ruiz · Sevilla, España';
-      elPrecioTop.innerHTML = '120 € <span style="font-size: 1rem; color: var(--color-text-muted); font-family: var(--font-sans); font-weight: 400;">/ sesión</span>';
-      elImagen.style.backgroundImage = "url('https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1000&auto=format&fit=crop')";
-      
-      // Actualizamos el carrito
-      elResumenServicio.innerText = 'Sesión familiar (1h)';
-      elResumenPrecio.innerText = '120,00 €';
-      actualizarTotales(120);
-    }
-    
-    // Si el servicio es "editorial"
-    if (servicio === 'editorial') {
-      elTitulo.innerText = 'Moda y editorial';
-      elSubtitulo.innerHTML = 'Por Laura Pérez · Barcelona, España';
-      elPrecioTop.innerHTML = '200 € <span style="font-size: 1rem; color: var(--color-text-muted); font-family: var(--font-sans); font-weight: 400;">/ sesión</span>';
-      elImagen.style.backgroundImage = "url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1000&auto=format&fit=crop')";
-      
-      // Actualizamos el carrito
-      elResumenServicio.innerText = 'Sesión editorial (3h)';
-      elResumenPrecio.innerText = '200,00 €';
-      actualizarTotales(200);
-    }
+      const euros = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 2 }) + ' €';
+      const GASTOS = 5;
 
-    // Por defecto (retratos), si no hay parámetro o es "retratos"
-    if (!servicio || servicio === 'retratos') {
-      actualizarTotales(150); // Retratos ya tiene 150€ puesto en el HTML
-    }
+      document.title = `${s.titulo} | Lúmina`;
+      document.querySelector('.detail-layout .card__badge').textContent = s.categoria;
+      document.querySelector('.detail-layout h1').textContent = s.titulo;
+      document.querySelector('.detail-layout p').textContent = `Por ${s.fotografo} · ${s.ciudad}, España`;
+      document.querySelector('.detail-layout h2').firstChild.textContent = `${s.precio} € `;
+      document.querySelector('.detail-img').style.backgroundImage = `url("${s.imagen.replace(/w=\d+/, 'w=1000')}")`;
+
+      const filas = document.querySelectorAll('.checkout-summary-row');
+      filas[0].children[0].textContent = `Sesión de ${s.categoria.toLowerCase()}`;
+      filas[0].children[1].textContent = euros(s.precio);
+      filas[1].children[0].textContent = `Fotógrafo: ${s.fotografo}`;
+      filas[2].children[1].textContent = euros(GASTOS);
+      document.querySelector('.checkout-summary-row.total span:last-child').textContent = euros(s.precio + GASTOS);
+      document.querySelector('.checkout-form button[type="submit"]').textContent = `Pagar ${euros(s.precio + GASTOS)} y confirmar`;
+    })();
   </script>
+  <script src="js/ui.js"></script>
+  <script src="js/validation.js"></script>
 </body>
 
 </html>

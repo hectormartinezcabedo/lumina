@@ -31,19 +31,22 @@
           <a href="registro.html" style="padding-bottom: 0.8rem; font-size: 0.9rem; color: var(--color-text-muted);">Crear cuenta</a>
         </div>
 
-        <form action="index.html">
+        <form id="login-form" action="index.html" novalidate>
+          <div class="form-summary" role="alert" hidden></div>
           <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" class="form-control" placeholder="tu@email.com" required>
+            <label for="login-email">Correo electrónico</label>
+            <input type="email" id="login-email" name="email" class="form-control" placeholder="tu@email.com" autocomplete="email" data-rules="required|email">
           </div>
           <div class="form-group">
-            <label>Contraseña</label>
-            <input type="password" class="form-control" placeholder="Mínimo 8 caracteres" required>
+            <label for="login-pass">Contraseña</label>
+            <input type="password" id="login-pass" name="password" class="form-control" placeholder="Mínimo 8 caracteres" autocomplete="current-password" data-rules="required|minlength:8">
           </div>
           <button type="submit" class="btn btn--primary btn--block" style="margin-top: 1rem;">Entrar en mi cuenta →</button>
         </form>
       </div>
     </div>
   </div>
+  <script src="js/ui.js"></script>
+  <script src="js/validation.js"></script>
 </body>
 </html>

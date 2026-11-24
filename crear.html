@@ -127,16 +127,18 @@
             </h2>
             <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 2rem;">Haz que tu perfil destaque con una propuesta única.</p>
             
-            <form action="index.html">
+            <form id="crear-form" action="index.html" novalidate>
+              <div class="form-summary" role="alert" hidden></div>
               <div class="form-group">
-                <label>Nombre del servicio</label>
-                <input type="text" class="form-control" placeholder="Ej: Propuesta de Personajes" required>
+                <label for="srv-nombre">Nombre del servicio</label>
+                <input type="text" id="srv-nombre" class="form-control" placeholder="Ej: Propuesta de Personajes" data-rules="required|minlength:5|maxlength:60">
               </div>
-              
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+
+              <div class="form-row-2">
                 <div class="form-group">
-                  <label>Categoría</label>
-                  <select class="form-control">
+                  <label for="srv-categoria">Categoría</label>
+                  <select id="srv-categoria" class="form-control" data-rules="required">
+                    <option value="">Selecciona una categoría</option>
                     <option>Bodas</option>
                     <option>Retratos</option>
                     <option>Familia</option>
@@ -144,28 +146,39 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label>Ciudad</label>
-                  <input type="text" class="form-control" placeholder="Madrid" required>
+                  <label for="srv-ciudad">Ciudad</label>
+                  <input type="text" id="srv-ciudad" class="form-control" placeholder="Madrid" data-rules="required|name|minlength:2">
                 </div>
               </div>
 
               <div class="form-group">
-                <label>Describe tu experiencia</label>
-                <textarea class="form-control" rows="4" placeholder="Describe qué hace único tu servicio..."></textarea>
+                <label for="srv-desc">Describe tu experiencia</label>
+                <textarea id="srv-desc" class="form-control" rows="4" placeholder="Describe qué hace único tu servicio..." data-rules="required|minlength:20|maxlength:500"></textarea>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-row-2">
                 <div class="form-group">
-                  <label>Precio desde (€)</label>
-                  <input type="number" class="form-control" placeholder="300">
+                  <label for="srv-precio">Precio desde (€)</label>
+                  <input type="number" id="srv-precio" class="form-control" placeholder="300" data-rules="required|min:20|max:5000">
                 </div>
                 <div class="form-group">
-                  <label>Duración aproximada</label>
-                  <select class="form-control">
+                  <label for="srv-duracion">Duración aproximada</label>
+                  <select id="srv-duracion" class="form-control">
                     <option>1 hora</option>
                     <option>2 horas</option>
                     <option>Jornada completa</option>
                   </select>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="srv-desde">Disponible desde</label>
+                  <input type="date" id="srv-desde" class="form-control" data-rules="required|date|future">
+                </div>
+                <div class="form-group">
+                  <label for="srv-hasta">Disponible hasta</label>
+                  <input type="date" id="srv-hasta" class="form-control" data-rules="required|date|future|after:#srv-desde">
                 </div>
               </div>
 
@@ -184,5 +197,7 @@
       </main>
     </div>
   </div>
+  <script src="js/ui.js"></script>
+  <script src="js/validation.js"></script>
 </body>
 </html>

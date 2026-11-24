@@ -104,24 +104,25 @@
             </div>
           </div>
           
-          <form action="#">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <form id="perfil-form" action="#" novalidate>
+            <div class="form-summary" role="alert" hidden></div>
+            <div class="form-row-2">
               <div class="form-group">
-                <label>Nombre</label>
-                <input type="text" class="form-control" value="Sofía">
+                <label for="pf-nombre">Nombre</label>
+                <input type="text" id="pf-nombre" class="form-control" value="Sofía" data-rules="required|name|minlength:2">
               </div>
               <div class="form-group">
-                <label>Apellidos</label>
-                <input type="text" class="form-control" value="García">
+                <label for="pf-apellidos">Apellidos</label>
+                <input type="text" id="pf-apellidos" class="form-control" value="García" data-rules="required|name|minlength:2">
               </div>
             </div>
             <div class="form-group">
-              <label>Correo electrónico</label>
-              <input type="email" class="form-control" value="sofia.garcia@email.com">
+              <label for="pf-email">Correo electrónico</label>
+              <input type="email" id="pf-email" class="form-control" value="sofia.garcia@email.com" data-rules="required|email">
             </div>
             <div class="form-group">
-              <label>Teléfono</label>
-              <input type="tel" class="form-control" value="+34 600 000 000">
+              <label for="pf-tel">Teléfono</label>
+              <input type="tel" id="pf-tel" class="form-control" value="+34 600 000 000" data-rules="phone">
             </div>
             <button type="submit" class="btn btn--primary" style="margin-top: 1rem;">Guardar cambios</button>
           </form>
@@ -129,5 +130,7 @@
       </main>
     </div>
   </div>
+  <script src="js/ui.js"></script>
+  <script src="js/validation.js"></script>
 </body>
 </html>

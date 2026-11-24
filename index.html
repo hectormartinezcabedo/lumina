@@ -159,7 +159,7 @@
         <div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
           <div>
             <div class="page-header__subtitle">TU ESPACIO, TUS RECUERDOS</div>
-            <h1>Buenos días, Sofía.</h1>
+            <h1><span id="greeting">Hola</span>, Sofía.</h1>
             <p>Hay momentos que merecen durar para siempre. Encuentra a quien los capture.</p>
           </div>
           <div class="date-badge">
@@ -170,7 +170,7 @@
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            21 De Octubre De 2026
+            <time id="today-date"></time>
           </div>
         </div>
 
@@ -239,9 +239,68 @@
           </div>
         </section>
 
+        <!-- Servicios (renderizados dinámicamente desde js/mockData.js) -->
+        <section id="servicios" class="services-section">
+          <div class="section-header">
+            <div>
+              <div class="page-header__subtitle">SERVICIOS DISPONIBLES</div>
+              <h3 id="services-count">Cargando servicios…</h3>
+            </div>
+            <div class="services-toolbar">
+              <div class="search-bar search-bar--inline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" id="dashboard-search" placeholder="Fotógrafo, ciudad, estilo…" aria-label="Filtrar servicios">
+              </div>
+              <select id="services-sort" class="form-control form-control--sm" aria-label="Ordenar servicios">
+                <option value="destacados">Destacados</option>
+                <option value="valoracion">Mejor valorados</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-chips" id="dashboard-chips" role="group" aria-label="Filtrar por categoría"></div>
+
+          <div class="grid-cards" id="services-grid" aria-live="polite"></div>
+
+          <div class="services-empty" id="services-empty" hidden>
+            <div class="fav-empty__icon">⌕</div>
+            <h3>No hay servicios que coincidan</h3>
+            <p>Prueba con otra palabra o cambia de categoría.</p>
+            <button type="button" class="btn btn--outline" id="services-clear">Limpiar filtros</button>
+          </div>
+        </section>
+
+        <!-- Plantilla de tarjeta (la clona dashboard.js por cada servicio) -->
+        <template id="service-card-template">
+          <div class="card-wrap">
+            <a class="card-link">
+              <article class="card">
+                <div class="card__img">
+                  <span class="card__badge"></span>
+                </div>
+                <div class="card__body">
+                  <h3 class="card__title"></h3>
+                  <div class="card__info"><span class="js-ciudad"></span><span class="js-rating"></span></div>
+                  <div class="card__meta"><span class="js-autor"></span><span class="card__price"></span></div>
+                </div>
+              </article>
+            </a>
+            <!-- Fuera del enlace: un botón no puede ir dentro de un <a> -->
+            <button type="button" class="card__heart js-fav" aria-pressed="false">♡</button>
+          </div>
+        </template>
+
       </main>
     </div>
   </div>
+  <script src="js/mockData.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 
 </html>

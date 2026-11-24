@@ -23,23 +23,45 @@
         
         <h1 style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--color-text-main);">Crea tu cuenta.</h1>
 
-        <form action="index.html">
+        <form id="registro-form" action="index.html" novalidate>
+          <div class="form-summary" role="alert" hidden></div>
           <div class="form-group">
-            <label>Nombre completo</label>
-            <input type="text" class="form-control" placeholder="Tu nombre" required>
+            <label for="reg-nombre">Nombre completo</label>
+            <input type="text" id="reg-nombre" name="nombre" class="form-control" placeholder="Tu nombre" autocomplete="name" data-rules="required|name|minlength:3">
           </div>
           <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" class="form-control" placeholder="tu@email.com" required>
+            <label for="reg-email">Correo electrónico</label>
+            <input type="email" id="reg-email" name="email" class="form-control" placeholder="tu@email.com" autocomplete="email" data-rules="required|email">
           </div>
           <div class="form-group">
-            <label>Contraseña</label>
-            <input type="password" class="form-control" placeholder="Mínimo 8 caracteres" minlength="8" required>
+            <label for="reg-nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="reg-nacimiento" name="nacimiento" class="form-control" data-rules="required|date|adult">
           </div>
           <div class="form-group">
-            <label>Repite la contraseña</label>
-            <input type="password" class="form-control" placeholder="Repite tu contraseña" minlength="8" required>
+            <label for="reg-pass">Contraseña</label>
+            <input type="password" id="reg-pass" name="password" class="form-control" placeholder="Mín. 8 caracteres, mayúscula y número" autocomplete="new-password" data-rules="required|password">
+            <div class="password-strength" data-score="0" aria-hidden="true">
+              <div class="password-strength__bar"><span></span><span></span><span></span><span></span></div>
+              <span class="password-strength__label"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reg-pass2">Repite la contraseña</label>
+            <input type="password" id="reg-pass2" name="password2" class="form-control" placeholder="Repite tu contraseña" autocomplete="new-password" data-rules="required|match:#reg-pass">
+          </div>
+          <div class="form-group">
+            <label class="form-check">
+              <input type="checkbox" id="reg-terminos" name="terminos" data-rules="checked">
+              Acepto los términos y la política de privacidad
+            </label>
           </div>
           <button type="submit" class="btn btn--primary btn--block" style="margin-top: 1rem;">Crear cuenta →</button>
         </form>
-        <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-text-muted);">¿Ya tienes cuenta? <a href="login.html" style="color: var(--color-primary); font-weight: 600;">Inicia sesión</a></p
+        <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-text-muted);">¿Ya tienes cuenta? <a href="login.html" style="color: var(--color-primary); font-weight: 600;">Inicia sesión</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="js/ui.js"></script>
+  <script src="js/validation.js"></script>
+</body>
+</html>
