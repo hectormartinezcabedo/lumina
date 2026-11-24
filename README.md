@@ -2,8 +2,8 @@
 
 Marketplace de fotografía que conecta a clientes con fotógrafos. Está hecho con **HTML5, CSS3 y JavaScript ES6+ nativo**, sin frameworks, sin dependencias y sin paso de compilación.
 
-- 🌐 **Web:** https://TU-USUARIO.github.io/lumina/
-- 🎨 **Prototipo Figma:** [ENLACE FIGMA]
+- 🌐 **Web:** https://hectormartinezcabedo.github.io/lumina/
+- 🎨 **Prototipo Figma:** [Plataforma de servicios fotográficos](https://www.figma.com/make/qaf9p64Zv2mtou6rcnZzZa/Plataforma-de-servicios-fotogr%C3%A1ficos?t=r8vfZv2nMLauAkSi-1)
 - 📄 **Memoria técnica:** [docs/MEMORIA.md](docs/MEMORIA.md) · [PDF](docs/MEMORIA.pdf)
 
 ## Cómo verlo en local
