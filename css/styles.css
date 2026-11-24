@@ -568,3 +568,17 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 .card-wrap:hover > .card__heart { transform: translateY(-4px); }
 .card-wrap > .card__heart:hover { transform: translateY(-4px) scale(1.1); }
 .card-wrap > .card__heart:focus-visible, .hamburger:focus-visible, .modal button:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+/* --- ENTREGA FINAL: enlace "estirado" en tarjetas estáticas ---
+   El <a> ya no envuelve al checkbox del corazón (HTML válido W3C):
+   el enlace vive en el título y su ::after cubre toda la tarjeta. */
+.card { position: relative; }
+.card__link { color: inherit; }
+.card__link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.card__link:focus-visible { outline: none; }
+.card:has(.card__link:focus-visible) { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+.card .fav-label { z-index: 2; }
+.section-header h2 { font-family: var(--font-serif); font-weight: 400; }
+
+/* Texto solo para lectores de pantalla */
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

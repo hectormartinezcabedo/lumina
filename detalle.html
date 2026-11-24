@@ -2,10 +2,12 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ficha del servicio y reserva con pago seguro.">
   <title>Detalle | Lúmina</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
     .detail-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
     .detail-img { position: relative; border-radius: var(--radius-md); height: 400px; background: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop') center/cover; }
@@ -81,7 +83,7 @@
       </nav>
 
       <div class="sidebar__promo">
-        <h4>Tu talento<br />merece ser visto.</h4>
+        <h4>Tu talento<br>merece ser visto.</h4>
         <p>Comparte lo que haces con personas que buscan tu mirada.</p>
         <a href="crear.html">Publicar ahora →</a>
       </div>
@@ -110,7 +112,7 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input type="text" placeholder="Buscar fotógrafos..." />
+            <input type="text" placeholder="Buscar fotógrafos...">
           </div>
 
           <!-- ENLACE A NOTIFICACIONES -->
@@ -133,13 +135,13 @@
 
           <!-- MENÚ DE USUARIO -->
           <div class="user-profile-wrapper">
-            <input type="checkbox" id="user-menu-toggle" class="user-dropdown-toggle" />
+            <input type="checkbox" id="user-menu-toggle" class="user-dropdown-toggle">
             <label for="user-menu-toggle" class="user-profile-btn">
-              <div class="user-avatar">S</div>
-              <div class="user-info">
+              <span class="user-avatar">S</span>
+              <span class="user-info">
                 <span class="user-name">Sofía García</span>
                 <span class="user-role">Mi cuenta</span>
-              </div>
+              </span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -148,7 +150,7 @@
               <a href="perfil.html">Mi perfil</a>
               <a href="ajustes.html">Configuración</a>
               <a href="ayuda.html">Ayuda</a>
-              <hr />
+              <hr>
               <a href="login.html" style="color: var(--color-primary); font-weight: 600">Cerrar sesión</a>
             </div>
           </div>
@@ -249,7 +251,7 @@
         </div>
         <div class="form-group">
           <label for="pay-cvc">CVC</label>
-          <input type="password" id="pay-cvc" class="form-control" placeholder="123" inputmode="numeric" autocomplete="cc-csc" maxlength="4" data-mask="digits" data-rules="required|cvc">
+          <input type="text" id="pay-cvc" class="form-control" placeholder="123" inputmode="numeric" autocomplete="cc-csc" maxlength="4" data-mask="digits" data-rules="required|cvc">
         </div>
       </div>
 

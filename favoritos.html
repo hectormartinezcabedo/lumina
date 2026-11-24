@@ -2,10 +2,12 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Los servicios de fotografía que has guardado.">
   <title>Favoritos | Lúmina</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -76,7 +78,7 @@
       </nav>
 
       <div class="sidebar__promo">
-        <h4>Tu talento<br />merece ser visto.</h4>
+        <h4>Tu talento<br>merece ser visto.</h4>
         <p>Comparte lo que haces con personas que buscan tu mirada.</p>
         <a href="crear.html">Publicar ahora →</a>
       </div>
@@ -105,7 +107,7 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input type="text" placeholder="Buscar fotógrafos..." />
+            <input type="text" placeholder="Buscar fotógrafos...">
           </div>
 
           <!-- ENLACE A NOTIFICACIONES -->
@@ -128,13 +130,13 @@
 
           <!-- MENÚ DE USUARIO -->
           <div class="user-profile-wrapper">
-            <input type="checkbox" id="user-menu-toggle" class="user-dropdown-toggle" />
+            <input type="checkbox" id="user-menu-toggle" class="user-dropdown-toggle">
             <label for="user-menu-toggle" class="user-profile-btn">
-              <div class="user-avatar">S</div>
-              <div class="user-info">
+              <span class="user-avatar">S</span>
+              <span class="user-info">
                 <span class="user-name">Sofía García</span>
                 <span class="user-role">Mi cuenta</span>
-              </div>
+              </span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -143,7 +145,7 @@
               <a href="perfil.html">Mi perfil</a>
               <a href="ajustes.html">Configuración</a>
               <a href="ayuda.html">Ayuda</a>
-              <hr />
+              <hr>
               <a href="login.html" style="color: var(--color-primary); font-weight: 600">Cerrar sesión</a>
             </div>
           </div>
@@ -158,14 +160,14 @@
           <p>Los servicios guardados, siempre a mano.</p>
         </header>
 
+        <h2 class="visually-hidden">Servicios guardados</h2>
         <div class="grid-cards">
           <!-- Tarjeta 1: Bodas -->
-          <a href="detalle.html?servicio=bodas" class="card-link">
-            <article class="card">
+          <article class="card">
               <div class="card__img" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop');">
                 <span class="card__badge">Bodas</span>
                 <input type="checkbox" id="fav-fav1" class="fav-checkbox" checked>
-                <label for="fav-fav1" class="fav-label" title="Quitar de favoritos" onclick="event.preventDefault();"></label>
+                <label for="fav-fav1" class="fav-label" title="Quitar de favoritos"></label>
                 
                 <!-- TOAST -->
                 <div class="toast-container">
@@ -176,22 +178,20 @@
                 </div>
               </div>
               <div class="card__body">
-                <h3 class="card__title">Historias de amor, a tu manera</h3>
+                <h3 class="card__title"><a class="card__link" href="detalle.html?servicio=bodas">Historias de amor, a tu manera</a></h3>
                 <div class="card__meta">
                   <span>Por Marta García</span>
                   <span class="card__price">Desde 300 €</span>
                 </div>
               </div>
             </article>
-          </a>
 
           <!-- Tarjeta 2: Familia -->
-          <a href="detalle.html?servicio=familia" class="card-link">
-            <article class="card">
+          <article class="card">
               <div class="card__img" style="background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop');">
                 <span class="card__badge">Familia</span>
                 <input type="checkbox" id="fav-fav2" class="fav-checkbox" checked>
-                <label for="fav-fav2" class="fav-label" title="Quitar de favoritos" onclick="event.preventDefault();"></label>
+                <label for="fav-fav2" class="fav-label" title="Quitar de favoritos"></label>
                 
                 <!-- TOAST -->
                 <div class="toast-container">
@@ -202,14 +202,13 @@
                 </div>
               </div>
               <div class="card__body">
-                <h3 class="card__title">Momentos en familia</h3>
+                <h3 class="card__title"><a class="card__link" href="detalle.html?servicio=familia">Momentos en familia</a></h3>
                 <div class="card__meta">
                   <span>Por Carlos Ruiz</span>
                   <span class="card__price">Desde 120 €</span>
                 </div>
               </div>
             </article>
-          </a>
         </div>
 
         <!-- Contador (CSS counter) -->

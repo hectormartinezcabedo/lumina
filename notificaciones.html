@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tus notificaciones de reservas y mensajes.">
   <title>Notificaciones | Lúmina</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
     /* Estilo específico para las tarjetas de notificación */
     .notif-card {
@@ -33,7 +35,7 @@
     .notif-icon--info { background: #e3f2fd; color: #1565c0; }
     .notif-icon--star { background: #fff8e1; color: #f57f17; }
     
-    .notif-content h4 {
+    .notif-content h3 {
       font-family: var(--font-sans);
       font-size: 1rem;
       margin-bottom: 0.3rem;
@@ -135,11 +137,11 @@
           <div class="user-profile-wrapper">
             <input type="checkbox" id="user-menu-toggle" class="user-dropdown-toggle">
             <label for="user-menu-toggle" class="user-profile-btn">
-              <div class="user-avatar">S</div>
-              <div class="user-info">
+              <span class="user-avatar">S</span>
+              <span class="user-info">
                 <span class="user-name">Sofía García</span>
                 <span class="user-role">Mi cuenta</span>
-              </div>
+              </span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </label>
             <div class="user-dropdown">
@@ -161,6 +163,7 @@
           <p>Mantente al día de tus reservas y mensajes.</p>
         </header>
 
+        <h2 class="visually-hidden">Bandeja de notificaciones</h2>
         <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 700px;">
           
           <!-- Notificación 1 (Éxito) -->
@@ -169,7 +172,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
             <div class="notif-content">
-              <h4>Reserva confirmada</h4>
+              <h3>Reserva confirmada</h3>
               <p>Marta García ha confirmado tu sesión de <strong>"Historias de amor, a tu manera"</strong> para el 12 de Octubre.</p>
               <span class="notif-time">Hace 2 horas</span>
             </div>
@@ -181,7 +184,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             </div>
             <div class="notif-content">
-              <h4>Nuevo mensaje de Sofía Martínez</h4>
+              <h3>Nuevo mensaje de Sofía Martínez</h3>
               <p>"¡Hola! Ya tienes disponibles las fotos de tu sesión. Espero que te gusten muchísimo."</p>
               <span class="notif-time">Hace 5 horas</span>
             </div>
@@ -193,7 +196,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </div>
             <div class="notif-content">
-              <h4>¿Qué tal tu experiencia?</h4>
+              <h3>¿Qué tal tu experiencia?</h3>
               <p>Han pasado unos días desde tu sesión. ¡Nos encantaría saber qué te pareció! Puedes dejar tu reseña desde <a href="reservas.html" style="color: var(--color-primary); font-weight: 600;">Mis reservas</a>.</p>
               <span class="notif-time">Ayer</span>
             </div>
