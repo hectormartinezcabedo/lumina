@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | Lúmina</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .error-404 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 70vh;
+      padding: 2rem;
+    }
+    .error-404 h1 {
+      font-family: var(--font-serif);
+      font-size: 8rem;
+      line-height: 1;
+      color: var(--color-primary);
+      opacity: 0.2;
+      margin-bottom: -2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .error-404 h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .error-404 p {
+      color: var(--color-text-muted);
+      max-width: 400px;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Reutilizamos la estructura básica de la app para que tenga el menú -->
+  <div class="app-layout">
+    <aside class="sidebar">
+      <!-- (Copia y pega tu sidebar aquí) -->
+      <a href="index.html" class="sidebar__logo">lúmina.</a>
+      <!-- ... resto del menú ... -->
+    </aside>
+    
+    <div class="main-wrapper">
+      <main class="content-area error-404">
+        <h1>404</h1>
+        <h2>Parece que esta foto se ha perdido.</h2>
+        <p>No hemos podido encontrar la página que buscas. Puede que el enlace esté roto o que la foto se haya borrado del carrete.</p>
+        <a href="index.html" class="btn btn--primary">Volver al inicio</a>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
